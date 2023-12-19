@@ -25,6 +25,8 @@
 
 <br>
 
+<img src="assets/pong.png">
+
 ## :dart: About ##
 
 The Pong game in JavaScript with canvas API.
