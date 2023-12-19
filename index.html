@@ -12,7 +12,6 @@
         }
 
         * {
-            /* font-family: "Pricedown"; */
             font-family: "Retro Gaming";
         }
 
@@ -100,7 +99,6 @@
                 ctx.stroke();
             }
         }
-        createGrid()
 
         const context = myCanvas.getContext('2d');
         const grid = 15;
@@ -116,6 +114,9 @@
         let color_red = 170;
         let color_green = 0;
         let color_blue = 0;
+
+        let color_mode = "normal" // ou "reverse"
+        let current_color = "red" // ou "blue", "green"
 
         const leftPaddle = {
             // start in the middle of the game on the left side
@@ -164,28 +165,32 @@
         }
 
         function changeColor() {
-            if (color_red === 170 && color_green === 0 && color_blue === 0) {
-                color_red += 1
-            } else {
+            let sign = 1
+            if (color_mode === "reverse") {
+                sign = -sign
+            }
+
+            if (current_color === "red") {
+                color_red += sign
                 if (color_red === 255) {
-                    color_red = 0;
-                    color_green = 170;
-                } else if (color_red !== 0 && color_green === 0 && color_blue === 0) {
-                    color_red += 1
-                } else {
-                    if (color_green === 255) {
-                        color_green = 0;
-                        color_blue = 170;
-                    } else if (color_red === 0 && color_green !== 0 && color_blue === 0) {
-                        color_green += 1
-                    } else {
-                        if (color_blue === 255) {
-                            color_blue = 0;
-                            color_red = 170;
-                        } else if (color_red === 0 && color_green === 0 && color_blue !== 0) {
-                            color_blue += 1
-                        }
-                    }
+                    current_color = "green"
+                } else if (color_red === 170 && color_mode === "reverse") {
+                    color_mode = "normal"
+                }
+            } else if (current_color === "green") {
+                color_green += sign
+                if (color_green === 255) {
+                    current_color = "blue"
+                } else if (color_green === 0 && color_mode === "reverse") {
+                    current_color = "red"
+                }
+            } else if (current_color === "blue") {
+                color_blue += sign
+                if (color_blue === 255) {
+                    color_mode = "reverse"
+                    current_color = "blue"
+                } else if (color_blue === 0 && color_mode === "reverse") {
+                    current_color = "green"
                 }
             }
         }
@@ -205,7 +210,6 @@
             // RESET DRAW
             context.clearRect(0, 0, myCanvas.width, myCanvas.height);
             // createGrid()
-
 
             // move paddles by their velocity
             leftPaddle.y += leftPaddle.dy;
@@ -234,7 +238,13 @@
             // draw score
             context.font = "bold 50px Retro Gaming";
             context.fillStyle = 'lightgrey';
-            context.fillText(leftScore, 320, 70);
+            let leftScoreX = 315
+
+            if (leftScore > 9) {
+                leftScoreX -= 30
+            }
+
+            context.fillText(leftScore, leftScoreX, 70);
             context.fillText(rightScore, 400, 70);
 
             // move ball by its velocity
@@ -310,6 +320,9 @@
                     ball.y = myCanvas.height / 2;
                 }, 2000);
             } else {
+                leftScore = 0;
+                rightScore = 0;
+
                 ball.resetting = false;
                 ball.x = myCanvas.width / 2;
                 ball.y = myCanvas.height / 2;
