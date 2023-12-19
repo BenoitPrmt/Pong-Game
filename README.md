@@ -1,15 +1,15 @@
-<h1 align="center">Tiny Pong</h1>
+<h1 align="center">Pong 🏓</h1>
 
 <p align="center">
-  <img alt="Github top language" src="https://img.shields.io/github/languages/top/BenoitPrmt/pong-js?color=56BEB8">
+  <img alt="Github top language" src="https://img.shields.io/github/languages/top/BenoitPrmt/Pong-Game?color=56BEB8">
 
-  <img alt="Github language count" src="https://img.shields.io/github/languages/count/BenoitPrmt/pong-js?color=56BEB8">
+  <img alt="Github language count" src="https://img.shields.io/github/languages/count/BenoitPrmt/Pong-Game?color=56BEB8">
 
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/BenoitPrmt/pong-js?color=56BEB8">
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/BenoitPrmt/Pong-Game?color=56BEB8">
 
-  <img alt="License" src="https://img.shields.io/github/license/BenoitPrmt/pong-js?color=56BEB8">
+  <img alt="License" src="https://img.shields.io/github/license/BenoitPrmt/Pong-Game?color=56BEB8">
 
-  <img alt="Github stars" src="https://img.shields.io/github/stars/BenoitPrmt/pong-js?color=56BEB8" />
+  <img alt="Github stars" src="https://img.shields.io/github/stars/BenoitPrmt/Pong-Game?color=56BEB8" />
 </p>
 
 
@@ -27,23 +27,27 @@
 
 ## :dart: About ##
 
-Describe your project
+The Pong game in JavaScript with canvas API.
+Player left :
+- Up : A
+- Down : Q
+
+Player right : 
+- Up : ArrowUp
+- Down : ArrowDown
 
 ## :sparkles: Features ##
 
-:heavy_check_mark: Feature 1;\
-:heavy_check_mark: Feature 2;\
-:heavy_check_mark: Feature 3;
+- Play with a friend with keyboard
+- Reset game
 
 ## :rocket: Technologies ##
 
 The following tools were used in this project:
 
-- [Expo](https://expo.io/)
-- [Node.js](https://nodejs.org/en/)
-- [React](https://pt-br.reactjs.org/)
-- [React Native](https://reactnative.dev/)
-- [TypeScript](https://www.typescriptlang.org/)
+- HTML / CSS
+- JavaScript
+- [canvas](https://developer.mozilla.org/fr/docs/Web/API/Canvas_API)
 
 ## :white_check_mark: Requirements ##
 
@@ -53,18 +57,12 @@ Before starting 🏁, you need to have [Git](https://git-scm.com).
 
 ```bash
 # Clone this project
-$ git clone https://github.com/BenoitPrmt/pong-js
+$ git clone https://github.com/BenoitPrmt/Pong-Game
 
 # Access
-$ cd pong-js
+$ cd Pong-Game
 
-# Install dependencies
-$ yarn
-
-# Run the project
-$ yarn start
-
-# The server will initialize in the <http://localhost:3000>
+# Launch the project with VSCode Live Server or launch the index.html file in browser
 ```
 
 ## :memo: License ##
