@@ -52,6 +52,7 @@ The following tools were used in this project:
 ## :white_check_mark: Requirements ##
 
 Before starting 🏁, you need to have [Git](https://git-scm.com).
+You need to install the font in the `fonts` folder to have the better experience.
 
 ## :checkered_flag: Starting ##
 
