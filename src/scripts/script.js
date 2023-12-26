@@ -43,8 +43,9 @@ const grid = 15;
 const paddleHeight = grid * 5; // 75
 const maxPaddleY = myCanvas.height - grid - paddleHeight;
 
-var paddleSpeed = 11;
-var ballSpeed = 10;
+var paddleSpeed = 13;
+var ballSpeed = 3;
+let speed = 1;
 
 let leftScore = 0;
 let rightScore = 0;
@@ -186,8 +187,8 @@ function loop() {
     context.fillText(rightScore, 400, 70);
 
     // move ball by its velocity
-    ball.x += ball.dx;
-    ball.y += ball.dy;
+    ball.x += ball.dx * speed;
+    ball.y += ball.dy * speed;
 
     // prevent ball from going through walls by changing its velocity
     if (ball.y < grid) {
@@ -208,12 +209,16 @@ function loop() {
             console.log('right out');
             addScore("left");
         }
+        speed = 1
         resetGame(true)
     }
 
     // check to see if ball collides with paddle. if they do change x velocity
     if (collides(ball, leftPaddle)) {
         ball.dx *= -1;
+
+        speed += 0.1
+        console.log(speed);
 
         // move ball next to the paddle otherwise the collision will happen again
         // in the next frame
@@ -222,6 +227,8 @@ function loop() {
     else if (collides(ball, rightPaddle)) {
         ball.dx *= -1;
 
+        speed += 0.1
+        console.log(speed);
         // move ball next to the paddle otherwise the collision will happen again
         // in the next frame
         ball.x = rightPaddle.x - ball.width;
