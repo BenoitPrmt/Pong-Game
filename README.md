@@ -42,6 +42,7 @@ Player right :
 
 - Play with a friend with keyboard
 - Reset game
+- The ball accelerates every time it hits a player
 
 ## :rocket: Technologies ##
 
